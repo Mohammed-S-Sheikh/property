@@ -1,0 +1,25 @@
+[debug] [2021-11-08T19:19:08.112Z] ----------------------------------------------------------------------
+[debug] [2021-11-08T19:19:08.115Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Mohamed Saher\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2021-11-08T19:19:08.116Z] CLI Version:   9.22.0
+[debug] [2021-11-08T19:19:08.116Z] Platform:      win32
+[debug] [2021-11-08T19:19:08.116Z] Node Version:  v14.17.5
+[debug] [2021-11-08T19:19:08.117Z] Time:          Mon Nov 08 2021 21:19:08 GMT+0200 (Eastern European Standard Time)
+[debug] [2021-11-08T19:19:08.117Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-11-08T19:19:08.125Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-11-08T19:19:08.125Z] > authorizing via signed-in user (mohamedsaher7k@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\WorkPlace\Laravel\Personal\property\Monolith
+
+Before we get started, keep in mind:
+
+  * You are currently outside your home directory
+

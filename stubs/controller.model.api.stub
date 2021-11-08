@@ -1,0 +1,41 @@
+<?php
+
+namespace {{ namespace }};
+
+use {{ namespacedModel }};
+use App\Http\Requests\{{ model }}Request;
+use {{ rootNamespace }}Http\Controllers\Controller;
+
+class {{ class }} extends Controller
+{
+    public function index()
+    {
+        return response()->success({{ model }}::all());
+    }
+
+    public function store({{ model }}Request $request)
+    {
+        {{ model }}::create($request->validated());
+
+        return response()->ok();
+    }
+
+    public function show({{ model }} ${{ modelVariable }})
+    {
+        return ${{ modelVariable }};
+    }
+
+    public function update({{ model }}Request $request, {{ model }} ${{ modelVariable }})
+    {
+        ${{ modelVariable }}->update($request->validated());
+
+        return response()->ok();
+    }
+
+    public function destroy({{ model }} ${{ modelVariable }})
+    {
+        ${{ modelVariable }}->delete();
+
+        return response()->ok();
+    }
+}
