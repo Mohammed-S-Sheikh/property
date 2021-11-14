@@ -2,8 +2,6 @@
 
 namespace App\Mixins;
 
-use Illuminate\Support\Facades\Response;
-
 class JsonResponseMixin
 {
     /**
@@ -25,7 +23,7 @@ class JsonResponseMixin
 
     public function success()
     {
-        return fn($data) => response()->json(['data' => $data], 200);
+        return fn($data) => response()->json($data, 200);
     }
 
     public function error()

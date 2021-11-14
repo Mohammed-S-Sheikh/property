@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\PropertyRequest;
 use App\Models\Property;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Pipeline\Pipeline;
 
@@ -14,7 +14,7 @@ class PropertyController extends Controller
         return response()->success($this->filter());
     }
 
-    public function store(PropertyRequest $request)
+    public function store(Request $request)
     {
         DB::transaction(function() use($request) {
 
@@ -32,7 +32,7 @@ class PropertyController extends Controller
         return $property;
     }
 
-    public function update(PropertyRequest $request, Property $property)
+    public function update(Request $request, Property $property)
     {
         DB::transaction(function() use($request, $property) {
             $property->update($request->except('images'));
@@ -49,6 +49,11 @@ class PropertyController extends Controller
         $property->delete();
 
         return response()->ok();
+    }
+
+    public function types()
+    {
+        return DB::table('properties')->select('type')->distinct()->get();
     }
 
     public function filter()
@@ -69,7 +74,6 @@ class PropertyController extends Controller
                     \App\QueryFilters\Property\User::class,
                 ])
                 ->thenReturn()
-                ->with('images')
                 ->get();
     }
 }

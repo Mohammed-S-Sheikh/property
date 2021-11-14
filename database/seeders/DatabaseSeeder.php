@@ -19,6 +19,8 @@ class DatabaseSeeder extends Seeder
             SectionSeeder::class,
         ]);
 
-        // \App\Models\User::factory(10)->create();
+        \App\Models\User::factory(1)->create();
+        \App\Models\Property::factory(100)->create();
+
     }
 }

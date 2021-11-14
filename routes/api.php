@@ -29,6 +29,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::prefix('v1')->group(function () {
 
+    Route::post('/properties/filter', [PropertyController::class, 'filter']);
+    Route::get('/properties/types', [PropertyController::class, 'types']);
+
     Route::apiResources([
         'cities' => CityController::class,
         'images' => ImageController::class,
@@ -37,9 +40,5 @@ Route::prefix('v1')->group(function () {
         'sections' => SectionController::class,
         'users' => UserController::class,
     ]);
-
-    Route::get('test', function() {
-        return view('test');
-    });
 
 });

@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Property;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,21 +15,20 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return 'Hoow';
 });
 
 Route::get('1', function () {
 
     // \App\Models\User::factory(1)->create();
-    // \App\Models\Property::truncate();
     // \App\Models\Property::factory(100)->create();
 
-    return time();
+    // return 'DONE';
 
 });
 
 Route::get('2', function () {
 
-    //
+    // \App\Models\Property::truncate();
 
 });

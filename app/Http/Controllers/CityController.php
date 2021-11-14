@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CityRequest;
 use App\Models\City;
+use Illuminate\Http\Request;
 
 class CityController extends Controller
 {
@@ -12,27 +12,30 @@ class CityController extends Controller
         return response()->success(City::all());
     }
 
-    public function store(CityRequest $request)
+    public function store(Request $request)
     {
-        City::create($request->validated());
+        City::create($request->all());
 
         return response()->ok();
     }
 
     public function show(City $city)
     {
+        $city['regions'] = $city->regions;
+
         return $city;
     }
 
-    public function update(CityRequest $request, City $city)
+    public function update(Request $request, City $city)
     {
-        $city->update($request->validated());
+        $city->update($request->all());
 
         return response()->ok();
     }
 
     public function destroy(City $city)
     {
+        $city->regions()->delete();
         $city->delete();
 
         return response()->ok();

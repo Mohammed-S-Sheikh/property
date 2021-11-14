@@ -2,40 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\SectionRequest;
 use App\Models\Section;
+use Illuminate\Http\Request;
 
 class SectionController extends Controller
 {
     public function index()
     {
-        // $sections = Section::query()
-        //                     ->where('order', 1)
-        //                     ->get();
-
-        // $data = collect($sections)
-        //         ->map(function($item) {
-        //             $subSections = Section::query()
-        //                                     ->where('order', 2)
-        //                                     ->where('path', 'LIKE', $item->path . '%')
-        //                                     ->get();
-
-        //             return [
-        //                 'id' => $item->id,
-        //                 'name_ar' => $item->name_ar,
-        //                 'name_en' => $item->name_en,
-        //                 'path' => $item->path,
-        //                 'order' => $item->order,
-        //                 'subs' => $subSections
-        //             ];
-        //         });
+        return $this->recursive(1, '/');
 
         return response()->success(Section::all());
     }
 
-    public function store(SectionRequest $request)
+    public function store(Request $request)
     {
-        Section::create($request->validated());
+        Section::create($request);
 
         return response()->ok();
     }
@@ -45,9 +26,9 @@ class SectionController extends Controller
         return $section;
     }
 
-    public function update(SectionRequest $request, Section $section)
+    public function update(Request $request, Section $section)
     {
-        $section->update($request->validated());
+        $section->update($request->toArray());
 
         return response()->ok();
     }
@@ -61,17 +42,6 @@ class SectionController extends Controller
 
     private function recursive($order, $path)
     {
-
-        // IN ORDER TO IMPLEMENT THIS METHOD, PUT THIS COMMENTED
-        // CODE IN OTHER METHOD :
-
-        // $mainSections = Section::where('order', 1)->get();
-        // $data = [];
-        // foreach ($mainSections as $section)
-        // {
-        //     array_push($data, $this->recursive(1, $section->path));
-        // }
-
         $sections = Section::query()
                             ->where('order', $order)
                             ->where('path', 'LIKE', $path . '%')
