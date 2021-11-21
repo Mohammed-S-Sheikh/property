@@ -4,7 +4,7 @@ namespace App\QueryFilters\Property;
 
 use App\QueryFilters\Filter;
 
-class Srice extends Filter
+class Space extends Filter
 {
     public function applyFilter($builder)
     {
